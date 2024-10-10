@@ -1,0 +1,195 @@
+/* app/styles/index.css */
+@font-face {
+  font-family: diediedie;
+  src: url(/fonts/diediedie/DIEDIEDI.TTF) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+.indexTitle {
+  margin-top: 5rem;
+  font-family: diediedie;
+  font-size: 10em;
+}
+html,
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background: linear-gradient(to bottom, #2b2b2b 0%, #111111 90%);
+  color: #fff;
+}
+body {
+  cursor: url(/cursor/cursor1.png), auto;
+  animation-duration: .7s;
+  animation: blinkCursor 2s 3s infinite;
+}
+@keyframes blinkCursor {
+  0% {
+    cursor: url(/cursor/cursor1.png), auto;
+  }
+  1% {
+    cursor: url(/cursor/cursor2.png), auto;
+  }
+  5% {
+    cursor: url(/cursor/cursor3.png), auto;
+  }
+  10% {
+    cursor: url(/cursor/cursor4.png), auto;
+  }
+  11% {
+    cursor: url(/cursor/cursor5.png), auto;
+  }
+  15% {
+    cursor: url(/cursor/cursor6.png), auto;
+  }
+  20% {
+    cursor: url(/cursor/cursor7.png), auto;
+  }
+}
+.titleButton {
+  color: #fff;
+  font-size: 4.5rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: url(/cursor/cursor1.png), auto;
+  transition: color .7s, background-color .7s;
+}
+.settingsSubTitle {
+  margin-left: 10%;
+  margin-bottom: 3%;
+  font-family: diediedie;
+  font-size: 3em;
+}
+.settingsText {
+  margin-left: 10%;
+  margin-top: 0%;
+  font-family: diediedie;
+  font-size: 3em;
+}
+input[type=radio] {
+  margin-right: 2rem;
+  transform: scale(1.5);
+}
+label {
+  cursor: pointer;
+  font-size: 3rem;
+  font-family: diediedie;
+  transition: color .5s ease;
+}
+input[type=radio]:checked + label {
+  color: #630000;
+}
+.radioGroup {
+  margin-left: 10%;
+  margin-top: 2rem;
+  font-family: diediedie;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+.radioGroup label:hover {
+  color: #960000;
+}
+.gameButton {
+  color: #fff;
+  padding: 4%;
+  font-family: diediedie;
+  font-size: 4.5rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: url(/cursor/cursor1.png), auto;
+  transition: color .7s, background-color .7s;
+}
+.gameButton:hover {
+  color: #630000;
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+.titleButton {
+  color: #fff;
+  font-size: 4.5rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: url(/cursor/cursor1.png), auto;
+  transition: color .7s, background-color .7s;
+  margin: 1rem 0;
+}
+.titleButton:hover {
+  color: #630000;
+}
+.settingsTitle {
+  font-size: 10rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  font-family: diediedie;
+  font-size: 10em;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.roomInput {
+  padding: 1rem;
+  font-family: diediedie;
+  font-size: 2rem;
+  border: 2px solid rgb(46, 46, 46);
+  border-radius: 20px;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 2rem;
+  width: 60%;
+}
+.roomInput::-moz-placeholder {
+  color: #ffffff4d;
+}
+.roomInput::placeholder {
+  color: #ffffff4d;
+}
+.submitButton {
+  padding: 1rem 2rem;
+  font-family: diediedie;
+  font-size: 2rem;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid rgb(46, 46, 46);
+  border-radius: 20px;
+  cursor: url(/cursor/cursor1.png), auto;
+  transition: color .7s, background-color .7s;
+}
+.submitButton:hover {
+  color: #630000;
+}
+.createRoomButton {
+  padding: .5rem 2rem;
+  font-family: diediedie;
+  font-size: 2rem;
+  color: #fff;
+  background-color: transparent;
+  border: .1px solid rgb(46, 46, 46);
+  border-radius: 20px;
+  cursor: url(/cursor/cursor1.png), auto;
+  transition: color .7s, background-color .7s;
+}
+.createRoomButton:hover {
+  color: #630000;
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/*# sourceMappingURL=/build/_assets/index-HJCT6I7Q.css.map */
