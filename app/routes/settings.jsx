@@ -19,8 +19,8 @@ export default function Settings() {
         </Link>
     </div>
 
-    <div style={{ marginTop: '17rem'}}  className="settingsText">
-        <Link to="/" className="titleButton">Back To Main Page</Link>
+    <div style={{ marginTop: '10rem'}}  className="settingsText">
+        <Link to="/" className="titleButton">Back</Link>
     </div>
 
     </div>

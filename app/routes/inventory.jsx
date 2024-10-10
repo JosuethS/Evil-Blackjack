@@ -17,7 +17,7 @@ export default function Inventory() {
 
 
       <div style={{ marginTop: '27rem' }} className="settingsText">
-        <Link to="/" className="titleButton">Back to Settings</Link>
+        <Link to="/" className="titleButton">Back</Link>
       </div>
     </div>
   );

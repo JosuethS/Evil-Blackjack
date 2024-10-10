@@ -13,8 +13,8 @@ export default function PlaySetup() {
         <Link to="/joingamesetup" className="gameButton">Join Game</Link>
       </div>
 
-      <div style={{ marginTop: '15rem' }} className="settingsText">
-        <Link to="/" className="titleButton">Back to Settings</Link>
+      <div style={{ marginTop: '10rem' }} className="settingsText">
+        <Link to="/" className="titleButton">Back</Link>
       </div>
 
     </div>

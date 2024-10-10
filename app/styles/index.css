@@ -67,13 +67,6 @@ body {
     color: rgb(99, 0, 0); /* Red text on hover */
 }
 
-/*settings css*/
-.settingsTitle {
-    margin-left: 10%;
-    font-family: diediedie;
-    font-size: 10em;
-}
-
 .settingsSubTitle {
     margin-left: 10%;
     margin-bottom: 3%;
@@ -131,6 +124,10 @@ input[type="radio"]:checked + label {
     transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
 }
 
+.gameButton:hover{
+    color: rgb(99, 0, 0);
+}
+
 .buttonContainer {
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
@@ -151,5 +148,77 @@ input[type="radio"]:checked + label {
 
 .titleButton:hover {
     color: rgb(99, 0, 0); /* Red text on hover */
+}
+
+
+.settingsTitle {
+    font-family: diediedie;
+    font-size: 10rem; /* Adjust font size */
+    text-align: center; /* Center the title text */
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    font-family: diediedie;
+    font-size: 10em;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: center; /* Center horizontally */
+}
+
+.roomInput {
+    padding: 1rem; /* Padding for the input */
+    font-family: diediedie; /* Custom font */
+    font-size: 2rem; /* Font size for the input */
+    border: 2px solid rgb(46, 46, 46); /* Border style */
+    border-radius: 20px; /* Slightly rounded corners */
+    background-color: transparent; /* Transparent background */
+    color: white; /* Text color */
+    margin-bottom: 2rem; /* Space below the input */
+    width: 60%; /* Width of the input box */
+}
+
+.roomInput::placeholder {
+    color: rgba(255, 255, 255, 0.3); /* Placeholder color */
+}
+
+.submitButton {
+    padding: 1rem 2rem; /* Padding for the button */
+    font-family: diediedie; /* Custom font */
+    font-size: 2rem; /* Font size for the button */
+    color: white; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid rgb(46, 46, 46); /* Border style */
+    border-radius: 20px; /* Slightly rounded corners */
+    cursor: url('/cursor/cursor1.png'), auto; /* Custom cursor */
+    transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
+}
+
+.submitButton:hover {
+    color: rgb(99, 0, 0); /* Red text on hover */
+}
+
+.createRoomButton {
+    padding: .5rem 2rem; /* Padding for the button */
+    font-family: diediedie; /* Custom font */
+    font-size: 2rem; /* Font size for the button */
+    color: white; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: .1px solid rgb(46, 46, 46); /* Border style */
+    border-radius: 20px; /* Slightly rounded corners */
+    cursor: url('/cursor/cursor1.png'), auto; /* Custom cursor */
+    transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
+}
+
+.createRoomButton:hover {
+    color: rgb(99, 0, 0); /* Red text on hover */
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
 }
 
