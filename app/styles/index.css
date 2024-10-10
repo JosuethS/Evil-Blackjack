@@ -118,3 +118,38 @@ input[type="radio"]:checked + label {
     color: rgb(150, 0, 0); /* Red text on hover */
 }
 
+
+.gameButton{
+    color: white;
+    padding: 4%;
+    font-family: diediedie;
+    font-size: 4.5rem; /* Large font size for button */
+    background-color: transparent; /* Default background */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: url('/cursor/cursor1.png'), auto; /* Custom cursor */
+    transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center horizontally */
+    margin-top: 2rem; /* Space above the buttons */
+}
+
+.titleButton {
+    color: white;
+    font-size: 4.5rem; /* Large font size for button */
+    background-color: transparent; /* Default background */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: url('/cursor/cursor1.png'), auto; /* Custom cursor */
+    transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
+    margin: 1rem 0; /* Space between buttons */
+}
+
+.titleButton:hover {
+    color: rgb(99, 0, 0); /* Red text on hover */
+}
+

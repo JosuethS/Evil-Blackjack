@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from '@remix-run/react';
 import '../styles/index.css'; // Assuming you want to retain the global styles
 
-export default function Sound() {
+export default function Inventory() {
   const [isMuted, setIsMuted] = useState(false); // State for mute toggle
 
   const handleMuteChange = () => {

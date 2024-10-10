@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from '@remix-run/react';
 import '../styles/index.css'; // Assuming you want to retain the global styles
 
-export default function Sound() {
+export default function Controls() {
   return (
     <div className="settingsDiv">
       <h1 className="settingsTitle">Controls</h1>

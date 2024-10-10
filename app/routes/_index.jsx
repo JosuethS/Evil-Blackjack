@@ -1,11 +1,7 @@
 import { Link } from '@remix-run/react'; // Correct import for Remix v2
-import globalStyles from '../styles/index.css';
+import '../styles/index.css';
 
 export default function Index() {
-  const handlePlayClick = () => {
-    console.log("Play button clicked!");
-  };
-
   return (
     <div className="indexTitle" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
       <h1>Evil Blackjack</h1>
