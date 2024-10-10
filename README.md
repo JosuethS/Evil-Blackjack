@@ -1,6 +1,6 @@
-dev
+## Development
 npm run dev
 
-prod
+## Deployment
 npm run build
 npm start
