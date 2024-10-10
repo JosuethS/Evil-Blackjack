@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import { Link } from '@remix-run/react';
+import { Link, useNavigate } from '@remix-run/react'; // Import useNavigate for navigation
 import '../styles/index.css'; // Assuming you want to retain the global styles
 
 export default function JoinGameSetup() {
   const [roomId, setRoomId] = useState('');
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to join the game with the roomId
     console.log('Joining room:', roomId);
+    
+    // Navigate to the waiting page with the roomId
+    navigate(`/waitingforplayer?roomId=${roomId}`);
   };
 
   return (

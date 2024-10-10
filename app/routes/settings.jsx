@@ -1,5 +1,5 @@
 import { Link } from '@remix-run/react'; // Correct import for Remix v2
-import globalStyles from '../styles/index.css'; // Include your global styles
+import '../styles/index.css'; // Include your global styles
 
 export default function Settings() {
   return (

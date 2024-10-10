@@ -6,11 +6,9 @@ export default function Index() {
     <div className="indexTitle" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
       <h1>Evil Blackjack</h1>
 
-
       <Link style={{ marginTop: "5%" }} to="/playsetup" className="titleButton">
         Play
       </Link>
-
 
       <Link to="/inventory" className="titleButton">
         Inventory

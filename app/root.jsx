@@ -7,7 +7,7 @@ import {
 } from "@remix-run/react";
 
 import "./tailwind.css";
-import globalStyles from './styles/index.css'; // Import the CSS file
+import '../app/styles/index.css';
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -19,11 +19,7 @@ export const links = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-  {
-    rel: "stylesheet",
-    href: globalStyles, // Add your index.css to the links array
-  },
+  }
 ];
 
 export function Layout({ children }) {

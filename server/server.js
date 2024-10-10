@@ -13,7 +13,7 @@ app.use(cors({
     methods: ['GET', 'POST'], // Allow specific methods
     credentials: true // Allow cookies to be sent
   }));
-  
+
 
 io.on('connection', (socket) => {
   console.log('a user connected');
