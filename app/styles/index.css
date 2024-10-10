@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'diediedie'; /* Replace with your font's name */
+    src: url('/fonts/diediedie/DIEDIEDI.TTF') format('truetype'); /* Adjust the path and format */
+    font-weight: normal; /* You can change this based on your font weight */
+    font-style: normal; /* Change this if your font is italic */
+}
+
+.indexTitle {
+    margin-top: 5rem;
+    font-family: diediedie;
+    font-size: 10em;
+}
+
+html, body {
+    /* Prevent text selection */
+    user-select: none;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background: linear-gradient(to bottom, #2b2b2b 0%, #111111 90%); /* Gradient from gray to black */
+    color: white; /* Contrast color */
+}
+
+/* Set the custom cursor globally */
+body {
+    cursor: url('/cursor/cursor1.png'), auto; /* Default static fallback */
+    animation-duration: .7s;
+    animation: blinkCursor 2s 3s infinite; 
+}
+
+@keyframes blinkCursor {
+    0% {
+        cursor: url('/cursor/cursor1.png'), auto;
+    }
+    1% {
+        cursor: url('/cursor/cursor2.png'), auto;
+    }
+    5% {
+        cursor: url('/cursor/cursor3.png'), auto;
+    }
+    10% {
+        cursor: url('/cursor/cursor4.png'), auto;
+    }
+    11% {
+        cursor: url('/cursor/cursor5.png'), auto;
+    }
+    15% {
+        cursor: url('/cursor/cursor6.png'), auto;
+    }
+    20% {
+        cursor: url('/cursor/cursor7.png'), auto;
+    }
+}
+
+.titleButton {
+    color: white;
+    font-size: 4.5rem; /* Large font size for button */
+    background-color: transparent; /* Default background */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: url('/cursor/cursor1.png'), auto; /* Custom cursor */
+    transition: color 0.7s, background-color 0.7s; /* Smooth transitions for hover effects */
+}
+
+.titleButton:hover {
+    color: rgb(99, 0, 0); /* Red text on hover */
+}
+
+/*settings css*/
+.settingsTitle {
+    margin-left: 10%;
+    font-family: diediedie;
+    font-size: 10em;
+}
+
+.settingsSubTitle {
+    margin-left: 10%;
+    margin-bottom: 3%;
+    font-family: diediedie;
+    font-size: 3em;
+}
+
+.settingsText {
+    margin-left: 10%;
+    margin-top: 0%;
+    font-family: diediedie;
+    font-size: 3em;
+}
+
+/*sound css*/
+input[type="radio"] {
+    margin-right: 2rem; /* Add space between radio button and label */
+    transform: scale(1.5); /* Increase size of radio button */
+}
+
+label {
+    cursor: pointer; /* Make the label clickable */
+    font-size: 3rem;
+    font-family: diediedie;
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+input[type="radio"]:checked + label {
+    color: rgb(99, 0, 0); /* Change label color when radio button is selected */
+}
+
+.radioGroup {
+    margin-left: 10%;
+    margin-top: 2rem;
+    font-family: diediedie;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.radioGroup label:hover {
+    color: rgb(150, 0, 0); /* Red text on hover */
+}
+
