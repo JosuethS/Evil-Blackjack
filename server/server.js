@@ -5,6 +5,7 @@ import cors from 'cors';
 
 const app = express();
 const server = http.createServer(app);
+
 const io = new Server(server, {
     cors: {
         origin: '*', // Allow all origins
@@ -12,11 +13,6 @@ const io = new Server(server, {
         credentials: true, // Allow credentials
     },
 });
-
-app.use(cors({
-    origin: '*', // Allow all origins
-    credentials: true, // Allow credentials
-}));
 
 io.on('connection', (socket) => {
     console.log('A user connected');

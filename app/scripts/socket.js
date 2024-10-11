@@ -1,8 +1,10 @@
 import { io } from 'socket.io-client';
 
+
+
 // Connect to the Socket.io server with fallback transports
 const socket = io('http://localhost:3001', {
-    transports: ['websocket', 'polling'], // Fallback to polling if WebSocket fails
+    transports: ['websocket'], // Fallback to polling if WebSocket fails
 });
 
 // Function to join a room

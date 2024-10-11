@@ -9,9 +9,16 @@ export default function WaitingForPlayer() {
     const [chatMessage, setChatMessage] = useState(''); // State for the chat message
     const [chatMessages, setChatMessages] = useState([]); // State for storing chat messages
     const [typingUser, setTypingUser] = useState(''); // State to track typing user
+    const [copySuccess, setCopySuccess] = useState(''); // State to track copy success
     const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
+        socket.off('connect');
+        socket.off('disconnect');
+        socket.off('typing');
+        socket.off('user-count');
+        socket.off('chat-message');
+
         console.log('Joining room:', roomId);
         socket.emit('join-room', roomId); // Emit join-room when component mounts
 
@@ -47,7 +54,6 @@ export default function WaitingForPlayer() {
     const handleSendChat = () => {
         if (chatMessage.trim()) {
             const messageData = { roomId, message: chatMessage }; // Create message object
-            console.log('Sending chat message:', messageData); // Log the message being sent
             socket.emit('chat-message', messageData); // Emit chat message
             setChatMessage(''); // Clear input after sending
         } else {
@@ -67,10 +73,26 @@ export default function WaitingForPlayer() {
         navigate('/'); // Navigate back to the main page or another route
     };
 
+    // Function to handle copying the Room ID to clipboard
+    const handleCopyRoomId = () => {
+        navigator.clipboard.writeText(roomId).then(() => {
+            setCopySuccess('Room ID copied!');
+            setTimeout(() => setCopySuccess(''), 2000); // Clear success message after 2 seconds
+        }).catch(() => {
+            setCopySuccess('Failed to copy!');
+        });
+    };
+
     return (
         <div className="p-4">
             <h1>{userCount === 2 ? 'Connected!' : 'Waiting for Player'}</h1>
-            <p>Room ID: {roomId}</p>
+            <div className="flex items-center">
+                <p className="mr-2">Room ID: {roomId}</p>
+                <button onClick={handleCopyRoomId} className="p-1 bg-blue-500 text-white rounded">
+                    Copy
+                </button>
+            </div>
+            {copySuccess && <p className="text-green-500 mt-2">{copySuccess}</p>}
 
             {/* Back button */}
             <button onClick={handleBack} className="mt-4 p-2 bg-blue-500 text-white rounded">

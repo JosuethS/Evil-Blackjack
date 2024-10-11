@@ -6,19 +6,6 @@ import '../styles/index.css'; // Assuming you want to retain the global styles
 export default function HostGameSetup() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        // Log connection status
-        socket.on('connect', () => {
-            console.log('Connected to server');
-        });
-
-        return () => {
-            // Clean up the socket connection when component unmounts
-            console.log('Disconnecting from server');
-            // Do not disconnect the socket here to keep the connection alive for other components
-        };
-    }, []);
-
     const generateRoomID = () => {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         const roomLength = Math.floor(Math.random() * (8 - 4 + 1)) + 4; // Random length between 4 and 8
