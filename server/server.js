@@ -1,3 +1,5 @@
+// server.js
+
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
@@ -13,58 +15,43 @@ const io = new Server(server, {
         credentials: true, // Allow credentials
     },
 });
+// server.js
 
 io.on('connection', (socket) => {
-    console.log('A user connected');
+    console.log('A user connected:', socket.id);
 
     // Handle room creation
     socket.on('create-room', (roomId) => {
         socket.join(roomId);
         console.log(`Room created: ${roomId}`);
         
-        // Notify the user count when a room is created
         const usersInRoom = io.sockets.adapter.rooms.get(roomId)?.size || 0;
-        io.to(roomId).emit('user-count', usersInRoom); // Notify users in the room
+        io.to(roomId).emit('user-count', usersInRoom);
     });
 
-    // Handle joining a room
-    socket.on('join-room', (roomId) => {
-        socket.join(roomId);
-        console.log(`User joined room: ${roomId}`);
+    // Handle leaving a room and disconnecting the socket
+    socket.on('leave-and-disconnect', (roomId) => {
+        console.log(`User leaving room: ${roomId} and disconnecting`);
 
-        // Update user count for the room
+        socket.leave(roomId); // Leave the specified room
+        socket.disconnect(); // Disconnect the socket
+        io.close(); // Disconnects all clients
+
+
         const usersInRoom = io.sockets.adapter.rooms.get(roomId)?.size || 0;
-        io.to(roomId).emit('user-count', usersInRoom); // Notify users in the room
-    });
-
-    // Handle chat messages
-    socket.on('chat-message', (data) => {
-        console.log(`Message received in room ${data.roomId}: ${data.message}`);
-        // Broadcast chat message to all users in the room
-        io.to(data.roomId).emit('chat-message', {
-            message: data.message,
-            senderId: socket.id, // Include the sender's ID
-        });
-    });
-
-    // Handle typing event
-    socket.on('typing', (userId) => {
-        // Broadcast typing event to all users in the room except the sender
-        socket.to(socket.rooms).emit('typing', userId);
+        io.to(roomId).emit('user-count', usersInRoom);
     });
 
     // Handle disconnection
     socket.on('disconnect', () => {
         console.log('User disconnected');
-        // Optionally, update the user count when a user disconnects
-        const rooms = Array.from(socket.rooms); // Get all rooms the socket is in
+        const rooms = Array.from(socket.rooms);
         rooms.forEach((roomId) => {
+            socket.leave(roomId);
             const usersInRoom = io.sockets.adapter.rooms.get(roomId)?.size || 0;
-            io.to(roomId).emit('user-count', usersInRoom); // Notify users in the room
+            io.to(roomId).emit('user-count', usersInRoom);
         });
-    });
-});
+        io.close(); // Disconnects all clients
 
-server.listen(3001, () => {
-    console.log('Server is running on port 3001');
+    });
 });
