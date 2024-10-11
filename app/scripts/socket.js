@@ -1,7 +1,5 @@
 import { io } from 'socket.io-client';
 
-
-
 // Connect to the Socket.io server with fallback transports
 const socket = io('http://localhost:3001', {
     transports: ['websocket'], // Fallback to polling if WebSocket fails
