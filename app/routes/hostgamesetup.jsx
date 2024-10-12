@@ -1,30 +1,31 @@
-// app/routes/hostgamesetup.jsx
-
-import { Link, useNavigate } from '@remix-run/react'; // Import useNavigate for redirection
+import { Link, useNavigate } from '@remix-run/react';
 import Cookies from 'js-cookie'; // Import js-cookie
 
 export default function HostGameSetup() {
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate();
 
     function generateRoomID() {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
-        const length = 8; // Length of the room ID
+        const length = 8;
         for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * characters.length)); // Generate random character
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
-        return result; // Return the generated room ID
+        return result;
     }
 
     const handleCreateRoom = () => {
-        const newRoomID = generateRoomID(); // Generate a new room ID
+        const newRoomID = generateRoomID();
         console.log(`Room created with ID: ${newRoomID}`);
 
         // Store the new room ID in cookies
-        Cookies.set('roomID', newRoomID, { expires: 1 }); // Set cookie to expire in 1 day
+        Cookies.set('roomID', newRoomID);
+
+        // Reset the remainingDeck in cookies
+        Cookies.remove('remainingDeck');
 
         // Navigate to the dynamic room page using the new room ID
-        navigate(`/${newRoomID}`); // Ensure this path is correct
+        navigate(`/${newRoomID}`);
     };
 
     return (
