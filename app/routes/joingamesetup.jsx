@@ -1,5 +1,8 @@
+// app/routes/joingamesetup.jsx
+
 import { useState } from 'react';
 import { Link, useNavigate } from '@remix-run/react'; // Import useNavigate for navigation
+import Cookies from 'js-cookie'; // Import js-cookie to save room ID
 import '../styles/index.css'; // Assuming you want to retain the global styles
 
 export default function JoinGameSetup() {
@@ -10,8 +13,11 @@ export default function JoinGameSetup() {
     e.preventDefault();
     console.log('Joining room:', roomId);
     
-    // Navigate to the waiting page with the roomId
-    navigate(`/waitingforplayer?roomId=${roomId}`);
+    // Store room ID in cookies so we can access it later
+    Cookies.set('roomID', roomId, { expires: 1 });
+
+    // Navigate to the room page
+    navigate(`/${roomId}`);
   };
 
   return (

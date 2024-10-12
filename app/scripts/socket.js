@@ -1,4 +1,4 @@
-//socket.js
+// socket.js
 
 import { io } from 'socket.io-client';
 
@@ -21,5 +21,4 @@ socket.on('connect_error', (error) => {
     console.error('Connection error:', error);
 });
 
-// Export the socket instance as default
 export default socket;
