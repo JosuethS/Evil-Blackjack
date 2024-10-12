@@ -1,28 +1,25 @@
+//socket.js
+
 import { io } from 'socket.io-client';
 
-// Connect to the Socket.io server with fallback transports
 const socket = io('http://localhost:3001', {
-    transports: ['websocket'], // Fallback to polling if WebSocket fails
+    transports: ['websocket', 'polling'], // Specify transport methods
 });
 
-// Function to join a room
-const joinRoom = (roomId) => {
-    if (socket) {
-        socket.emit('join-room', roomId);
-        console.log(`Joined room: ${roomId}`);
-    } else {
-        console.log('Socket not initialized');
-    }
-};
-
-// Socket connection handling
+// Listen for connection events (for debugging)
 socket.on('connect', () => {
     console.log('Socket connected:', socket.id);
 });
 
-socket.on('disconnect', () => {
-    console.log('Socket disconnected');
+// Listen for disconnection events (for debugging)
+socket.on('disconnect', (reason) => {
+    console.log('Socket disconnected:', reason);
 });
 
-// Export the socket and joinRoom function
-export { socket, joinRoom };
+// Listen for connection errors
+socket.on('connect_error', (error) => {
+    console.error('Connection error:', error);
+});
+
+// Export the socket instance as default
+export default socket;

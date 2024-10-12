@@ -1,47 +1,42 @@
-import { Link, useNavigate } from '@remix-run/react';
-import { useEffect } from 'react';
-import { socket } from '../scripts/socket';
-import '../styles/index.css'; // Assuming you want to retain the global styles
+// app/routes/hostgamesetup.jsx
+
+import { Link, useNavigate } from '@remix-run/react'; // Import useNavigate for redirection
+import { useState } from 'react';
+import Cookies from 'js-cookie'; // Import js-cookie
+import socket from '../scripts/socket'; // Import the Socket.io instance
 
 export default function HostGameSetup() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook for navigation
 
-    const generateRoomID = () => {
+    function generateRoomID() {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        const roomLength = Math.floor(Math.random() * (8 - 4 + 1)) + 4; // Random length between 4 and 8
-        let roomId = '';
-        for (let i = 0; i < roomLength; i++) {
-            roomId += characters.charAt(Math.floor(Math.random() * characters.length));
+        let result = '';
+        const length = 8; // Length of the room ID
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length)); // Generate random character
         }
-        return roomId;
-    };
+        return result; // Return the generated room ID
+    }
 
     const handleCreateRoom = () => {
-        const roomId = generateRoomID();
-        console.log('Generated roomId:', roomId);
-        
-        if (socket) {
-            console.log('Socket is connected:', socket.connected);
-            socket.emit('create-room', roomId);
-            console.log('Room creation emitted');
-        } else {
-            console.log('Socket not initialized');
-        }
+        const newRoomID = generateRoomID(); // Generate a new room ID
+        console.log(`Room created with ID: ${newRoomID}`);
 
-        // Redirect to the waiting page
-        navigate(`/waitingforplayer?roomId=${roomId}`);
+        // Store the new room ID in cookies
+        Cookies.set('roomID', newRoomID, { expires: 1 }); // Set cookie to expire in 1 day
+
+        // Navigate to the dynamic room page using the new room ID
+        navigate(`/${newRoomID}`); // Ensure this path is correct
     };
 
     return (
         <div className="settingsDiv">
             <h1 className="settingsTitle">Host Game</h1>
-
             <div className="buttonContainer">
-                <button onClick={handleCreateRoom} className="createRoomButton">
+                <button className="createRoomButton" onClick={handleCreateRoom}>
                     Create Room
                 </button>
             </div>
-
             <div style={{ marginTop: '22rem' }} className="settingsText">
                 <Link to="/playsetup" className="titleButton">Back</Link>
             </div>
