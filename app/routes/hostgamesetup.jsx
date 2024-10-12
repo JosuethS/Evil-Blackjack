@@ -1,9 +1,7 @@
 // app/routes/hostgamesetup.jsx
 
 import { Link, useNavigate } from '@remix-run/react'; // Import useNavigate for redirection
-import { useState } from 'react';
 import Cookies from 'js-cookie'; // Import js-cookie
-import socket from '../scripts/socket'; // Import the Socket.io instance
 
 export default function HostGameSetup() {
     const navigate = useNavigate(); // Hook for navigation

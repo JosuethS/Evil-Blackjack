@@ -68,7 +68,7 @@ export default function Room() {
                 <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)} // Update message state
-                    placeholder="Type your message here..."
+                    placeholder="Type here..."
                     className="chatInput"
                 />
                 <button onClick={handleSendMessage} className="sendButton">Send Message</button>
